@@ -22,9 +22,15 @@ const GET_TOPICS = gql`
   }
 }`;
 class Topic extends Component {
- state = { slugSelected: null }
- onTopicSelected = ({ target }) => {
-  this.setState(() => ({ slugSelected: target.value }));
+ state = {
+  slugSelected: null,
+  topic: null
+ }
+ onTopicSelected = ({ target }, topics) => {
+  this.setState(() => ({
+   slugSelected: target.value,
+   topic: topics.filter(topic => topic.slug === target.value)[0]
+  }));
  };
 
  render() {
@@ -36,7 +42,7 @@ class Topic extends Component {
     return (
      <div>
       <h3>Topics</h3>
-      <select name="topic" onChange={this.onTopicSelected}>
+      <select name="topic" onChange={(event) => this.onTopicSelected(event, topics)}>
        <option value=''>Please select a topic</option>
        {topics.map(topic => (
         <option key={topic.slug} value={topic.slug}>
@@ -44,9 +50,9 @@ class Topic extends Component {
         </option>
        ))}
       </select>
-      <TopicItem topic={topics.filter(topic => topic.slug === this.state.slugSelected)[0]} />
+      {this.state.slugSelected && <TopicItem topic={topics.filter(topic => topic.slug === this.state.slugSelected)[0]} />}
       <hr />
-      {this.state.slugSelected && <Articles articles={topics.filter(topic => topic.slug === this.state.slugSelected)[0].articles} />}
+      {this.state.slugSelected && <Articles articles={this.state.topic.articles} />}
      </div>
     );
    }}
@@ -54,4 +60,5 @@ class Topic extends Component {
   )
  }
 };
+
 export default Topic
