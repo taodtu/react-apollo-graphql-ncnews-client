@@ -13,6 +13,21 @@ const httpLink = new HttpLink({
  uri: "https://nc-news-graphql-server.herokuapp.com/graphql"
 });
 const cache = new InMemoryCache();
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+ if (graphQLErrors) {
+  graphQLErrors.map(({ message, locations, path }) =>
+   console.log(
+    `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+   ),
+  );
+ }
+
+ if (networkError) {
+  console.log(`[Network error]: ${networkError}`);
+ }
+});
+
+const link = ApolloLink.from([errorLink, httpLink]);
 const client = new ApolloClient({
  link: httpLink,
  cache,
