@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import TopicItem from './TopicItem';
+import Articles from './ArticleList'
 
 const GET_TOPICS = gql`
 {
@@ -13,15 +14,11 @@ const GET_TOPICS = gql`
     articles{
      article_id
      title
-     body
      votes
      topic
      author
      created_at
-    user {
-      username,
-      name}
-  comment_count}
+     comment_count}
   }
 }`;
 class Topic extends Component {
@@ -48,6 +45,8 @@ class Topic extends Component {
        ))}
       </select>
       <TopicItem topic={topics.filter(topic => topic.slug === this.state.slugSelected)[0]} />
+      <hr />
+      {this.state.slugSelected && <Articles articles={topics.filter(topic => topic.slug === this.state.slugSelected)[0].articles} />}
      </div>
     );
    }}
