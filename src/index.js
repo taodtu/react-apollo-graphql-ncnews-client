@@ -11,9 +11,12 @@ import App from './App';
 
 const httpLink = new HttpLink({
  uri: "https://nc-news-graphql-server.herokuapp.com/graphql"
+});
+const cache = new InMemoryCache();
+const client = new ApolloClient({
+ link: httpLink,
+ cache,
 })
-
-
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
