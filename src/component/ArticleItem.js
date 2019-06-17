@@ -1,7 +1,8 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { GET_TOPICS } from './Topic'
+import { GET_TOPICS } from './Topic';
+import ARTICLE_FRAGMENT from './articleFragment'
 
 const UPDATE_VOTES = gql`
 mutation UpdateArticle ($article_id: ID! $inc_votes: Int! ) {
@@ -10,17 +11,21 @@ mutation UpdateArticle ($article_id: ID! $inc_votes: Int! ) {
   votes
  }
 }`
-// const updateVotes = (client, { data: { updateArticle: { article_id } } }) => {
-//  const article = client.readQuery({ query: GET_TOPICS }).topics[2].articles.filter(article => article.article_id === article_id)[0];
-//  const votes = article.votes + 1;
-//  client.writeQuery({
-//   query: GET_TOPICS,
-//   data: {
-//    ...article,
-//    votes
-//   }
-//  })
-// }
+const updateVotes = (client, { data: { updateArticle: { article_id } } }) => {
+ const article = client.readFragment({
+  id: `Article:${article_id}`,
+  fragment: ARTICLE_FRAGMENT
+ })
+ console.log(client)
+ // const votes = article.votes + 1;
+ // client.writeQuery({
+ //  query: GET_TOPICS,
+ //  data: {
+ //   ...article,
+ //   votes
+ //  }
+ // })
+}
 const ArticleItem = ({ article_id, author, votes, created_at, comment_count }) => {
  return (
   <div className="topic">
@@ -30,8 +35,8 @@ const ArticleItem = ({ article_id, author, votes, created_at, comment_count }) =
     <Mutation
      mutation={UPDATE_VOTES}
      variables={{ "article_id": article_id, "inc_votes": 1 }}
-    // refetchQueries={[{ query: GET_TOPICS }]}
-    // update={updateVotes}
+     // refetchQueries={[{ query: GET_TOPICS }]}
+     update={updateVotes}
     >
      {(updateArticle, { data, loading, error }) => (
       <div> {data ? data.updateArticle.votes : votes}<button onClick={updateArticle} >
