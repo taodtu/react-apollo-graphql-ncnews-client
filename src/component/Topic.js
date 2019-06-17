@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import TopicItem from './TopicItem';
-import Articles from './ArticleList'
+import Articles from './ArticleList';
+import ARTICLE_FRAGMENT from './articleFragment';
 
 const GET_TOPICS = gql`
 {
@@ -12,15 +13,10 @@ const GET_TOPICS = gql`
     article_count
     comment_count
     articles{
-     article_id
-     title
-     votes
-     topic
-     author
-     created_at
-     comment_count}
+     ...article
   }
-}`;
+}} ${ARTICLE_FRAGMENT}
+`;
 class Topic extends Component {
  state = {
   slugSelected: null,
@@ -62,3 +58,4 @@ class Topic extends Component {
 };
 
 export default Topic
+export { GET_TOPICS }
