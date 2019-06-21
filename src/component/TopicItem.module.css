@@ -1,0 +1,26 @@
+.topic{
+  border-radius: 1em;
+  display:flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  margin:0.3em;
+  background-color: rgb(208, 224, 213);
+ 
+}
+
+.item{
+  margin: .1em 2em 0.6em;
+  text-align: left;
+  text-decoration: none;
+  color: rgb(47, 2, 90)
+}
+
+.topic:hover{
+  background-color: rgb(238, 191, 153); 
+}
+.articles{
+  margin: .1em 2em 0.6em;
+  text-align: left;
+  text-decoration: none;
+  color: rgb(47, 2, 90)
+}
