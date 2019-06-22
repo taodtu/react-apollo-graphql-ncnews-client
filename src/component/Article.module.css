@@ -1,0 +1,26 @@
+.article{
+ display: flex;
+ flex-flow: wrap row;
+ align-items: center; 
+ border: 1px solid rgb(1, 1, 37);
+ border-radius: 1em;
+}
+
+.left{
+ flex:1;
+ text-align: left;
+ margin-left: 0.5em;
+ border: 1px ;
+ border-right-style: solid;
+}
+.mid{
+ flex:4;
+ text-align: justify;
+ line-height: 1.5em;
+ margin-left: 0.5em;
+}
+.right{
+ flex:0.8;
+ text-align: center;
+ justify-content: center;
+}

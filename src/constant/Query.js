@@ -31,7 +31,7 @@ export const GET_USERS = gql`
 export const GET_ARTICLE = gql`
 query($id: ID!)
   {getArticle(article_id:$id ) {
-    article_id
+    article_id,
     title,
     body,
     author,

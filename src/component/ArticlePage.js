@@ -12,14 +12,12 @@ class ArticlePage extends Component {
           {({ loading, error, data }) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
-            const { getArticle } = data;
-            console.log(data)
+            const { getArticle: { comments, ...rest } } = data;
+            console.log(comments)
             return (
               <div>
-                <h3>Article and Comments </h3>
-                {/* <div className={Style.topic} >
-                  {topics.map(topic => <TopicItem topic={topic} key={topic.slug} />)}
-                </div> */}
+                <h3>Article (id:{id}) and Comments </h3>
+                <Article {...rest} />
               </div>
             );
           }}
