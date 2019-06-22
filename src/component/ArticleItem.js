@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArticleItem = ({ article_id, title, votes, created_at, comment_count }) => {
+const ArticleItem = ({ article: { article_id, title, votes, created_at, comment_count } }) => {
  return (
   <div className="article-item">
    <span style={{ width: '20%' }}>{article_id} </span>
