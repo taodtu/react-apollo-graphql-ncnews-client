@@ -11,6 +11,28 @@ a:hover {
   color: rgb(240, 112, 26);
   text-decoration: none;
 }
+h4{
+  color: rgb(52, 9, 95);
+  margin: 1.19em 0em;
+  font-family:  Arial,  sans-serif;
+}
 .title-link{
   margin-left: 2em;
+}
+
+.article-item{
+  display: flex;
+  margin-top: 0.5em;
+  text-align: center;
+  align-items: center;
+}
+.item{
+  border: 2px solid rgb(122, 123, 194);
+  border-radius: 1em;
+  padding-left: 0.5em; 
+}
+.user{
+  display:flex;
+  flex-flow: row wrap;
+  margin:10px;
 }

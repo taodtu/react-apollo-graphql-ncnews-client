@@ -10,17 +10,20 @@ query($slug: String!)
     article_id
     title,
     votes,
-    created_at
+    created_at,
+    comment_count,
 }}`;
 class TopicItem extends Component {
   state = {
     clicked: false,
+    articles: null
   }
   handleClick = (clicked) => {
     this.setState({
       clicked: !clicked,
     })
   }
+
   render() {
     const { topic } = this.props;
     const { slug } = topic;
@@ -34,19 +37,16 @@ class TopicItem extends Component {
         </div>
         {clicked && <Query query={GET_ARTICLES} variables={{ slug }} >
           {({ error, data }) => {
-            console.log(data)
-            return <p>hi</p>
-            // if (error) return `Error! ${error.message}`;
-            // const { articlesByTopic } = data;
-            // console.log(data)
-            // return (
-            //   <div>
-            //     <h3>articles belong to {slug}, click article_id to see more details</h3>
-            //     <div className={Style.articles} >
-            //       {articlesByTopic.map(article => <ArticleItem article={article} key={article.article_id} />)}
-            //     </div>
-            //   </div>
-            // );
+            if (error) return `Error! ${error.message}`;
+            const { articlesByTopic } = data;
+            return (
+              <div>
+                <h4>Articles belong to {slug}, click article_id to see more details</h4>
+                {articlesByTopic && <div className={Style.articles} >
+                  {articlesByTopic.map(article => <ArticleItem article={article} key={article.article_id} />)}
+                </div>}
+              </div>
+            );
           }}
         </Query>}
       </div>

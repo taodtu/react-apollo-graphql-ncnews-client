@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Topic from './component/Topic';
+import User from './component/User';
 import { Link, Router } from '@reach/router';
 
 class App extends Component {
