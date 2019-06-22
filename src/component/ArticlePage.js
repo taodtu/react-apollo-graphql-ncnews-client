@@ -30,12 +30,15 @@ class ArticlePage extends Component {
             query: GET_ARTICLE
             , variables: { id }
           }]}
+        //the following will work if create_at and comment_id is provided, the cache won't get that!
         // update={(cache, { data: { createComment } }) => {
-        //   console.log(cache.readQuery({ query: getArticle }))
-        //   const { getArticle: { comments } } = cache.readQuery({ query: GET_ARTICLE });
+        //   const { getArticle } = cache.readQuery({ query: GET_ARTICLE, variables: { id } });
+        //   const { comments } = getArticle;
+        //   const newComments = [...comments, createComment]
         //   cache.writeQuery({
         //     query: GET_ARTICLE,
-        //     data: { getArticle: { comments: [...comments, createComment] } }
+        //     variables: { id },
+        //     data: { getArticle: { ...getArticle, comments: newComments } }
         //   })
         // }}
         >
