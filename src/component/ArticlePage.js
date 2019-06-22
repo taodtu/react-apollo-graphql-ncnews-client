@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Query } from 'react-apollo';
-import { GET_ARTICLE } from '../constant/Query'
+import { Query, Mutation } from 'react-apollo';
+import { GET_ARTICLE } from '../constant/Query';
+import { ADD_COMMENT } from '../constant/Mutation'
 import Article from './Article';
 import Comment from './Comment';
 
@@ -24,6 +25,12 @@ class ArticlePage extends Component {
             );
           }}
         </Query>
+        <hr />
+        <Mutation mutation={ADD_COMMENT} update={(cache, { data: { createComment } }) => {
+
+        }} >
+
+        </Mutation>
       </div>
     );
   }
