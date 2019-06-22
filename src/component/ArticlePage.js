@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { GET_ARTICLE } from '../constant/Query'
 import Article from './Article';
+import Comment from './Comment';
 
 class ArticlePage extends Component {
   render() {
@@ -18,6 +19,7 @@ class ArticlePage extends Component {
               <div>
                 <h3>Article (id:{id}) and Comments </h3>
                 <Article {...rest} />
+                {comments.map(comment => <Comment {...comment} key={comment.comment_id} />)}
               </div>
             );
           }}
