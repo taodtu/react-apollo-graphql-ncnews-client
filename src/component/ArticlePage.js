@@ -15,7 +15,6 @@ class ArticlePage extends Component {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             const { getArticle: { comments, ...rest } } = data;
-            console.log(comments)
             return (
               <div>
                 <h3>Article (id:{id}) and Comments </h3>
@@ -26,11 +25,36 @@ class ArticlePage extends Component {
           }}
         </Query>
         <hr />
-        <Mutation mutation={ADD_COMMENT} update={(cache, { data: { createComment } }) => {
-
-        }} >
-
+        <Mutation mutation={ADD_COMMENT}
+          refetchQueries={[{
+            query: GET_ARTICLE
+            , variables: { id }
+          }]}
+        // update={(cache, { data: { createComment } }) => {
+        //   console.log(cache.readQuery({ query: getArticle }))
+        //   const { getArticle: { comments } } = cache.readQuery({ query: GET_ARTICLE });
+        //   cache.writeQuery({
+        //     query: GET_ARTICLE,
+        //     data: { getArticle: { comments: [...comments, createComment] } }
+        //   })
+        // }}
+        >
+          {(createComment, { data, loading, error }) => {
+            if (loading) return "Loading...";
+            if (error) return `Error! ${error.message}`;
+            return (
+              <div>
+                <form onSubmit={e => {
+                  e.preventDefault();
+                  createComment({ variables: { username: "grumpy19", id: 1, comment: "lovin it" } })
+                }} >
+                  <button type="submit" >Submit</button>
+                </form>
+              </div>
+            )
+          }}
         </Mutation>
+        <hr />
       </div>
     );
   }

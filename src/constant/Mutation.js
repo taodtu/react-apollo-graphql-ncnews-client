@@ -6,6 +6,7 @@ mutation ($username:String! $id:ID! $comment:String!) {
     comment_id
     article_id
     author
+    body
   }
 }
 `
