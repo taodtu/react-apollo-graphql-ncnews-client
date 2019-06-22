@@ -12,3 +12,8 @@ mutation ($username:String! $id:ID! $comment:String!) {
   }
 }
 `
+export const DELETE_COMMENT = gql`
+mutation ($id:ID!) {
+  deleteComment (comment_id:$id) 
+}
+`
