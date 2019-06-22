@@ -1,0 +1,28 @@
+
+.outline{
+ margin: 0.5em, 0.5em;
+ border-radius: 1em;
+ border: 1.5px solid rgb(3, 70, 6)
+}
+.form{
+ display: flex;
+ flex-flow: wrap row;
+ align-items: center; 
+ margin-bottom: 3em;
+}
+
+.username{
+ flex:1;
+ text-align: left;
+ margin-left: 1em;
+}
+.comment{
+ flex:4;
+ text-align: justify;
+ line-height: 1.5em;
+ margin-left: 0.5em;
+}
+.submit{
+ flex:0.8;
+ margin-left: auto;
+}

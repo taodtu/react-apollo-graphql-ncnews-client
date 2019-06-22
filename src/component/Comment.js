@@ -1,8 +1,10 @@
 import React from 'react';
 import Style from './Comment.module.css';
 import { Button } from '@material-ui/core';
+import { Mutation } from 'react-apollo';
 
 const Comment = ({ comment_id,
+ article_id,
  author,
  body,
  votes,
