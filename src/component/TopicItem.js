@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import Style from './TopicItem.module.css';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { GET_ARTICLES_TOPIC } from '../constant/Query'
 import ArticleItem from './ArticleItem';
 
-const GET_ARTICLES = gql`
-query($slug: String!)
-  {articlesByTopic (topic:$slug ) {
-    article_id
-    title,
-    votes,
-    created_at,
-    comment_count,
-}}`;
 class TopicItem extends Component {
   state = {
     clicked: false,
@@ -22,7 +13,6 @@ class TopicItem extends Component {
       clicked: !clicked,
     })
   }
-
   render() {
     const { topic } = this.props;
     const { slug } = topic;
@@ -34,7 +24,7 @@ class TopicItem extends Component {
           <p className={Style.item}>Description:  {topic.description} </p>
           <p className={Style.item} >Article_count: {topic.article_count} Comment_count: {topic.comment_count}</p>
         </div>
-        {clicked && <Query query={GET_ARTICLES} variables={{ slug }} >
+        {clicked && <Query query={GET_ARTICLES_TOPIC} variables={{ slug }} >
           {({ error, data }) => {
             if (error) return `Error! ${error.message}`;
             const { articlesByTopic } = data;

@@ -1,17 +1,8 @@
 import React from 'react';
-import gql from 'graphql-tag';
+import { GET_TOPICS } from '../constant/Query'
 import { Query } from 'react-apollo';
 import TopicItem from './TopicItem';
 import Style from './Topic.module.css'
-
-const GET_TOPICS = gql`
-{
-  topics{
-    slug
-    description
-    article_count
-    comment_count
-}}`;
 
 const Topic = () => {
   return (<Query query={GET_TOPICS} >

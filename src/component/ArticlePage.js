@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-
-const GET_ARTICLE = gql`
-query($id: ID!)
-  {getArticle(article_id:$id ) {
-    article_id
-    title,
-    body,
-    author,
-    topic,
-    votes,
-    created_at,
-    comment_count,
-}}`;
+import { GET_ARTICLE } from '../constant/Query'
+import Article from './Article';
 
 class ArticlePage extends Component {
- render() {
-  const { id } = this.props;
-  return (
-   <div>
-    <p>{id}</p>
-   </div>
-  );
- }
+  render() {
+    const { id } = this.props;
+    return (
+      <div>
+        <Query query={GET_ARTICLE} variables={{ id }} >
+          {({ loading, error, data }) => {
+            if (loading) return "Loading...";
+            if (error) return `Error! ${error.message}`;
+            const { getArticle } = data;
+            console.log(data)
+            return (
+              <div>
+                <h3>Article and Comments </h3>
+                {/* <div className={Style.topic} >
+                  {topics.map(topic => <TopicItem topic={topic} key={topic.slug} />)}
+                </div> */}
+              </div>
+            );
+          }}
+        </Query>
+      </div>
+    );
+  }
 }
 
 export default ArticlePage;
