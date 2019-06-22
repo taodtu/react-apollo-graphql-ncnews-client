@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Topic from './component/Topic';
 import User from './component/User';
+import ArticlePage from './component/ArticlePage';
 import { Link, Router } from '@reach/router';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Router>
             <Topic path="/topics" />
             <User path="/users" />
+            <ArticlePage path="/articles/:id" />
           </Router>
         </div>
       </div>
