@@ -5,9 +5,9 @@ import UserItem from './UserItem';
 
 const GET_USERS = gql`
 {
-  topics{
-    slug
-    description
+  users{
+    username
+    name
     article_count
     comment_count
 }}`;
@@ -17,12 +17,12 @@ const User = () => {
   {({ loading, error, data }) => {
    if (loading) return "Loading...";
    if (error) return `Error! ${error.message}`;
-   const { Users } = data;
+   const { users } = data;
    return (
     <div>
      <h3>Users, click to see articles on each user </h3>
      <div className="user" >
-      {/* {Users.map(User => <UserItem User={User} key={User.slug} />)} */}
+      {users.map(user => <UserItem user={user} key={user.username} />)}
      </div>
     </div>
    );

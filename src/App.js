@@ -15,6 +15,7 @@ class App extends Component {
         <div>
           <Router>
             <Topic path="/topics" />
+            <User path="/users" />
           </Router>
         </div>
       </div>

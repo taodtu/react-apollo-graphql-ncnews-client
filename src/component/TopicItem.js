@@ -16,7 +16,6 @@ query($slug: String!)
 class TopicItem extends Component {
   state = {
     clicked: false,
-    articles: null
   }
   handleClick = (clicked) => {
     this.setState({

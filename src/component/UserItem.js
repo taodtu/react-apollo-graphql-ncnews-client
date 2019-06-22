@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import Style from './TopicItem.module.css';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-import ArticleItem from './ArticleItem';
+// import { Query } from 'react-apollo';
+// import gql from 'graphql-tag';
+// import ArticleItem from './ArticleItem';
 
-const GET_ARTICLES = gql`
-query($slug: String!)
-  {articlesByTopic (topic:$slug ) {
-    article_id
-    title,
-    votes,
-    created_at,
-    comment_count,
-}}`;
+// const GET_ARTICLES = gql`
+// query($slug: String!)
+//   {articlesByTopic (topic:$slug ) {
+//     article_id
+//     title,
+//     votes,
+//     created_at,
+//     comment_count,
+// }}`;
 class UserItem extends Component {
  state = {
   clicked: false,
-  articles: null
  }
  handleClick = (clicked) => {
   this.setState({
@@ -25,17 +24,17 @@ class UserItem extends Component {
  }
 
  render() {
-  const { topic } = this.props;
-  const { slug } = topic;
+  const { user } = this.props;
+  const { username } = user;
   const { clicked } = this.state;
   return (
    <div>
     <div className={Style.topic} onClick={() => this.handleClick(clicked)}>
-     <strong className={Style.item} style={{ "textAlign": "center", "marginTop": "0.8em" }}>Slug:  {slug} </strong>
-     <p className={Style.item}>Description:  {topic.description} </p>
-     <p className={Style.item} >Article_count: {topic.article_count} Comment_count: {topic.comment_count}</p>
+     <strong className={Style.item} style={{ "textAlign": "center", "marginTop": "0.8em" }}>Username: {username} </strong>
+     <p className={Style.item}>name:  {user.name} </p>
+     <p className={Style.item} >Article_count: {user.article_count} Comment_count: {user.comment_count}</p>
     </div>
-    {clicked && <Query query={GET_ARTICLES} variables={{ slug }} >
+    {/* {clicked && <Query query={GET_ARTICLES} variables={{ slug }} >
      {({ error, data }) => {
       if (error) return `Error! ${error.message}`;
       const { articlesByTopic } = data;
@@ -48,7 +47,7 @@ class UserItem extends Component {
        </div>
       );
      }}
-    </Query>}
+    </Query>} */}
    </div>
   )
  }
