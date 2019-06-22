@@ -20,7 +20,9 @@ const Comment = ({ comment_id,
    <div className={Style.right}>
     <p>Votes: {votes}</p>
     <Button variant="outlined" size="small" color="primary"> + vote! </Button>
-    <Button variant="outlined" size="small" color="secondary"> Delete </Button>
+    <div className={Style.button}>
+     <Button variant="outlined" size="small" color="secondary" > Delete </Button>
+    </div>
    </div>
   </div>
  );
