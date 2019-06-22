@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import Style from './TopicItem.module.css';
-// import { Query } from 'react-apollo';
-// import gql from 'graphql-tag';
-// import ArticleItem from './ArticleItem';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+import ArticleItem from './ArticleItem';
 
-// const GET_ARTICLES = gql`
-// query($slug: String!)
-//   {articlesByTopic (topic:$slug ) {
-//     article_id
-//     title,
-//     votes,
-//     created_at,
-//     comment_count,
-// }}`;
+const GET_ARTICLES = gql`
+query($username: String!)
+  {articlesByAuthor (username:$username ) {
+    article_id
+    title,
+    votes,
+    created_at,
+    comment_count,
+}}`;
 class UserItem extends Component {
  state = {
   clicked: false,
@@ -34,20 +34,20 @@ class UserItem extends Component {
      <p className={Style.item}>name:  {user.name} </p>
      <p className={Style.item} >Article_count: {user.article_count} Comment_count: {user.comment_count}</p>
     </div>
-    {/* {clicked && <Query query={GET_ARTICLES} variables={{ slug }} >
+    {clicked && <Query query={GET_ARTICLES} variables={{ username }} >
      {({ error, data }) => {
       if (error) return `Error! ${error.message}`;
-      const { articlesByTopic } = data;
+      const { articlesByAuthor } = data;
       return (
        <div>
-        <h4>Articles belong to {slug}, click article_id to see more details</h4>
-        {articlesByTopic && <div className={Style.articles} >
-         {articlesByTopic.map(article => <ArticleItem article={article} key={article.article_id} />)}
+        <h4>Articles belong to {username}, click article_id to see more details</h4>
+        {articlesByAuthor && <div className={Style.articles} >
+         {articlesByAuthor.map(article => <ArticleItem article={article} key={article.article_id} />)}
         </div>}
        </div>
       );
      }}
-    </Query>} */}
+    </Query>}
    </div>
   )
  }
