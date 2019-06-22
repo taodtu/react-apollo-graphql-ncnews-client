@@ -26,21 +26,22 @@ class ArticlePage extends Component {
         </Query>
         <hr />
         <Mutation mutation={ADD_COMMENT}
-          refetchQueries={[{
-            query: GET_ARTICLE
-            , variables: { id }
-          }]}
-        //the following will work if create_at and comment_id is provided, the cache won't get that!
-        // update={(cache, { data: { createComment } }) => {
-        //   const { getArticle } = cache.readQuery({ query: GET_ARTICLE, variables: { id } });
-        //   const { comments } = getArticle;
-        //   const newComments = [...comments, createComment]
-        //   cache.writeQuery({
-        //     query: GET_ARTICLE,
-        //     variables: { id },
-        //     data: { getArticle: { ...getArticle, comments: newComments } }
-        //   })
-        // }}
+          // refetchQueries={[{
+          //   query: GET_ARTICLE
+          //   , variables: { id }
+          // }]}
+          //Update returned data from server!!
+          update={(cache, { data: { createComment } }) => {
+            const { getArticle } = cache.readQuery({ query: GET_ARTICLE, variables: { id } });
+            const { comments, comment_count } = getArticle;
+            const newCount = comment_count + 1;
+            const newComments = [...comments, createComment]
+            cache.writeQuery({
+              query: GET_ARTICLE,
+              variables: { id },
+              data: { getArticle: { ...getArticle, comment_count: newCount, comments: newComments } }
+            })
+          }}
         >
           {(createComment, { data, loading, error }) => {
             if (loading) return "Loading...";
