@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ADD_COMMENT } from '../constant/Mutation';
+import { ADD_COMMENT } from '../../constant/Mutation';
 import { Mutation } from 'react-apollo';
-import { GET_ARTICLE } from '../constant/Query';
+import { GET_ARTICLE } from '../../constant/Query';
 import { Button, TextField } from '@material-ui/core';
 import Style from './AddComment.module.css';
 
