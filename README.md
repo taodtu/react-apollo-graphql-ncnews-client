@@ -1,4 +1,4 @@
-All the data manipulations on array and object are ensured not mutating the original data by using destrucring and spread operator.
+All the data manipulations on array and object are ensured not mutating the original data by using destructuring and spread operator.
 
 Offset-based pagination is implemented on topics and users page, while cursor-based pagination is applied on articles page.
 
