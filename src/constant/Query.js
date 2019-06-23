@@ -27,6 +27,15 @@ export const GET_USERS = gql`
     article_count
     comment_count
 }}`;
+export const GET_ARTICLES_USER = gql`
+query($username: String! $offset:Int $limit:Int)
+  {articlesByAuthor (username:$username offset:$offset limit:$limit) {
+    article_id
+    title,
+    votes,
+    created_at,
+    comment_count,
+}}`;
 
 export const GET_ARTICLE = gql`
 query($id: ID!)

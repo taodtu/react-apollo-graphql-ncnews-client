@@ -25,7 +25,8 @@ class TopicItem extends Component {
           <p className={Style.item} >Article_count: {topic.article_count} Comment_count: {topic.comment_count}</p>
         </div>
         {clicked && <Query query={GET_ARTICLES_TOPIC} variables={{ slug }} >
-          {({ error, data }) => {
+          {({ error, loading, data }) => {
+            if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             const { articlesByTopic } = data;
             return (

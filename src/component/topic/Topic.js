@@ -14,7 +14,7 @@ const Topic = () => {
         <div>
           <h3>Topics, click to see articles on each slug </h3>
           <div className={Style.topic} >
-            {topics.map(topic => <TopicItem topic={topic} key={topic.slug} />)}
+            {topics && topics.map(topic => <TopicItem topic={topic} key={topic.slug} />)}
           </div>
         </div>
       );
