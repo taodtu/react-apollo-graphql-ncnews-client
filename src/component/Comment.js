@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './Comment.module.css';
-import { Button } from '@material-ui/core';
+import VoteComment from './VoteComment';
 import DeleteComment from './DeleteComment';
 
 const Comment = ({ comment_id,
@@ -21,8 +21,7 @@ const Comment = ({ comment_id,
       </div>
       <div className={Style.right}>
         <p>Votes: {votes}</p>
-        <Button variant="outlined" size="small" color="primary"> + vote! </Button>
-
+        <VoteComment article_id={article_id} comment_id={comment_id} />
         <div className={Style.button}>
           <DeleteComment article_id={article_id} comment_id={comment_id} />
         </div>
