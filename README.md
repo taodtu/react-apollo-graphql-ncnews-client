@@ -4,6 +4,8 @@ Offset-based pagination is implemented on topics and users page, while cursor-ba
 
 All graphQL mutations are achieved using Apollo Cache, rather than refetching from the server after mutation.
 
+Optimistic response implemented on article vote button.
+
 ## Available Scripts
 
 In the project directory, you can run:
