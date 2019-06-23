@@ -3,6 +3,7 @@ import Style from './TopicItem.module.css';
 import { Query } from 'react-apollo';
 import { GET_ARTICLES_TOPIC } from '../../constant/Query'
 import ArticleItem from '../article/ArticleItem';
+import { Button } from '@material-ui/core';
 
 class TopicItem extends Component {
   state = {
@@ -24,8 +25,8 @@ class TopicItem extends Component {
           <p className={Style.item}>Description:  {topic.description} </p>
           <p className={Style.item} >Article_count: {topic.article_count} Comment_count: {topic.comment_count}</p>
         </div>
-        {clicked && <Query query={GET_ARTICLES_TOPIC} variables={{ slug }} >
-          {({ error, loading, data }) => {
+        {clicked && <Query query={GET_ARTICLES_TOPIC} variables={{ slug, offset: 0, limit: 3 }} >
+          {({ error, loading, data, fetchMore }) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             const { articlesByTopic } = data;
@@ -35,6 +36,40 @@ class TopicItem extends Component {
                 {articlesByTopic && <div className={Style.articles} >
                   {articlesByTopic.map(article => <ArticleItem article={article} key={article.article_id} />)}
                 </div>}
+
+                <div className={Style.button} >
+                  <div className={Style.buttonitem}>
+                    <Button variant="outlined" size="medium" color="primary"
+                      onClick={() =>
+                        fetchMore({
+                          variables: {
+                            offset: articlesByTopic.length
+                          },
+                          updateQuery: (prev, { fetchMoreResult }) => {
+                            if (!fetchMoreResult) return prev;
+                            return { ...prev, articlesByTopic: [...prev.articlesByTopic, ...fetchMoreResult.articlesByTopic] }
+                          }
+                        })}
+                    > More </Button>
+                  </div>
+                  <div className={Style.buttonitem}>
+                    <Button variant="outlined" size="medium" color="primary"
+                      onClick={() =>
+                        fetchMore({
+                          variables: {
+                            offset: articlesByTopic.length,
+                            limit: null
+                          },
+                          updateQuery: (prev, { fetchMoreResult }) => {
+                            if (!fetchMoreResult) return prev;
+                            return { ...prev, articlesByTopic: [...prev.articlesByTopic, ...fetchMoreResult.articlesByTopic] }
+                          }
+                        })}
+                    > Show all </Button></div>
+                  <Button variant="outlined" size="medium" color="secondary"
+                    onClick={() => this.handleClick(clicked)}
+                  > Close all </Button>
+                </div>
               </div>
             );
           }}

@@ -10,8 +10,8 @@ export const GET_TOPICS = gql`
 }}`;
 
 export const GET_ARTICLES_TOPIC = gql`
-query($slug: String!)
-  {articlesByTopic (topic:$slug ) {
+query($slug: String!$offset:Int $limit:Int)
+  {articlesByTopic (topic:$slug offset:$offset limit:$limit) {
     article_id
     title,
     votes,

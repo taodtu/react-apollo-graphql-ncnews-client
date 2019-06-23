@@ -65,7 +65,6 @@ class UserItem extends Component {
                       })}
                   > Show all </Button>
                 </div>
-
               </div>
             );
           }}
