@@ -25,7 +25,9 @@ class TopicItem extends Component {
           <p className={Style.item}>Description:  {topic.description} </p>
           <p className={Style.item} >Article_count: {topic.article_count} Comment_count: {topic.comment_count}</p>
         </div>
-        {clicked && <Query query={GET_ARTICLES_TOPIC} variables={{ slug, offset: 0, limit: 3 }} >
+        {clicked && <Query query={GET_ARTICLES_TOPIC}
+          variables={{ slug, offset: 0, limit: 3 }}
+          notifyOnNetworkStatusChange={true} >
           {({ error, loading, data, fetchMore }) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
