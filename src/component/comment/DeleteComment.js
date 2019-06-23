@@ -24,7 +24,7 @@ const DeleteComment = ({ article_id, comment_id }) => {
     >{(deleteComment, { data, loading, error }) => {
       if (loading) return "Loading...";
       if (error) return `Error! ${error.message}`;
-      return <Button variant="outlined" size="small" color="secondary"
+      return <Button variant="contained" size="small" color="secondary"
         onClick={() => deleteComment({ variables: { id: comment_id } })}> Delete </Button>
     }}
     </Mutation>

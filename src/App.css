@@ -36,3 +36,6 @@ h4{
   margin:10px;
   grid-template-rows: 1fr,1fr,1fr,1fr,1fr,1fr;
 }
+p{
+  margin: 0.5em 0em;
+}
