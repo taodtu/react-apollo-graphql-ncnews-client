@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import { GET_ARTICLE } from '../constant/Query';
+import { GET_ARTICLE } from '../../constant/Query';
 import Article from './Article';
-import Comment from './comment/Comment';
-import AddComment from './comment/AddComment';
+import Comment from '../comment/Comment';
+import AddComment from '../comment/AddComment';
 
 class ArticlePage extends Component {
   render() {

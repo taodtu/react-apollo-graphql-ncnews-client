@@ -1,6 +1,6 @@
-import { VOTE_ARTICLE } from '../constant/Mutation';
+import { VOTE_ARTICLE } from '../../constant/Mutation';
 import { Mutation } from 'react-apollo';
-import { GET_ARTICLE } from '../constant/Query';
+import { GET_ARTICLE } from '../../constant/Query';
 import { Button } from '@material-ui/core';
 import React from 'react';
 
