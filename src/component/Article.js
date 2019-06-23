@@ -1,7 +1,9 @@
 import React from 'react';
 import Style from './Article.module.css';
-import { Button } from '@material-ui/core';
+import VoteArticle from './VoteArticle';
+
 const Article = ({
+ article_id,
  title,
  body,
  author,
@@ -24,7 +26,7 @@ const Article = ({
    <div className={Style.right}>
     <p>Votes:</p>
     <p>{votes}</p>
-    <Button variant="outlined" size="small" color="primary"> + vote! </Button>
+    <VoteArticle id={article_id} />
    </div>
   </div>
  );

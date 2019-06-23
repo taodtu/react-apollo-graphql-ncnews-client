@@ -17,3 +17,11 @@ mutation ($id:ID!) {
   deleteComment (comment_id:$id) 
 }
 `
+export const VOTE_COMMENT = gql`
+mutation UpdateArticle ($id:ID! $votes:Int!) {
+  updateArticle(article_id:$id, inc_votes:$votes){
+    article_id
+    votes   
+  }
+}
+`
