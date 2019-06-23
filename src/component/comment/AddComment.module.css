@@ -2,13 +2,14 @@
 .outline{
  margin: 0.5em, 0.5em;
  border-radius: 1em;
- border: 1.5px solid rgb(3, 70, 6)
+ border: 1.5px solid rgb(3, 70, 6);
+ margin-bottom: 0.5em;
 }
 .form{
  display: flex;
  flex-flow: wrap row;
  align-items: center; 
- margin-bottom: 3em;
+ margin-bottom: 0.9em;
 }
 
 .username{

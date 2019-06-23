@@ -19,13 +19,13 @@ class ArticlePage extends Component {
               <div>
                 <h3>Article (id:{id}) and Comments </h3>
                 <Article {...rest} />
+                <hr />
+                <AddComment id={id} />
                 {comments.map(comment => <Comment {...comment} key={comment.comment_id} />)}
               </div>
             );
           }}
         </Query>
-        <hr />
-        <AddComment id={id} />
         <hr />
       </div>
     );

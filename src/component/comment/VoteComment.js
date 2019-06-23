@@ -11,7 +11,7 @@ const VoteComment = ({ article_id, comment_id }) => {
         const { getArticle } = cache.readQuery({ query: GET_ARTICLE, variables: { id: article_id } });
         const { comments } = getArticle;
         const rest = comments.filter(comment => comment.comment_id !== comment_id);
-        const newComments = [...rest, updateComment]
+        const newComments = [updateComment, ...rest]
         cache.writeQuery({
           query: GET_ARTICLE,
           variables: { id: article_id },
