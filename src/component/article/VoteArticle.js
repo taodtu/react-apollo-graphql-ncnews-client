@@ -27,8 +27,7 @@ const VoteArticle = ({ id, votes }) => {
         }
       }}
     >
-      {(updateArticle, { data, loading, error }) => {
-        if (loading) return "Loading...";
+      {(updateArticle, { data, error }) => {
         if (error) return `Error! ${error.message}`;
         return <Button variant="outlined" size="small" color="primary"
           onClick={updateArticle}> + vote! </Button>
