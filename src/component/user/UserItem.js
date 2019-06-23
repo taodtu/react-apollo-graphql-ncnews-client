@@ -51,19 +51,23 @@ class UserItem extends Component {
                         })}
                     > More </Button>
                   </div>
-                  <Button variant="outlined" size="medium" color="primary"
-                    onClick={() =>
-                      fetchMore({
-                        variables: {
-                          offset: articlesByAuthor.length,
-                          limit: null
-                        },
-                        updateQuery: (prev, { fetchMoreResult }) => {
-                          if (!fetchMoreResult) return prev;
-                          return { ...prev, articlesByAuthor: [...prev.articlesByAuthor, ...fetchMoreResult.articlesByAuthor] }
-                        }
-                      })}
-                  > Show all </Button>
+                  <div className={Style.buttonitem}>
+                    <Button variant="outlined" size="medium" color="primary"
+                      onClick={() =>
+                        fetchMore({
+                          variables: {
+                            offset: articlesByAuthor.length,
+                            limit: null
+                          },
+                          updateQuery: (prev, { fetchMoreResult }) => {
+                            if (!fetchMoreResult) return prev;
+                            return { ...prev, articlesByAuthor: [...prev.articlesByAuthor, ...fetchMoreResult.articlesByAuthor] }
+                          }
+                        })}
+                    > Show all </Button></div>
+                  <Button variant="outlined" size="medium" color="secondary"
+                    onClick={() => this.handleClick(clicked)}
+                  > Close all </Button>
                 </div>
               </div>
             );
