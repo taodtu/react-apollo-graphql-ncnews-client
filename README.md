@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+All the data manipulations on array and object are ensured not mutating the original data by using destrucring and spread operator.
+
+Offset-based pagination is implemented on topics and users page, while cursor-based pagination is applied on articles page.
+
+All graphQL mutations are achieved using Apollo Cache, rather than refetching from the server after mutation.
 
 ## Available Scripts
 
