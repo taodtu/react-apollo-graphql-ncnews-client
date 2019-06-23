@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Topic from './component/Topic';
-import User from './component/User';
+import Topic from './component/topic/Topic';
+import User from './component/user/User';
 import ArticlePage from './component/article/ArticlePage';
 import { Link, Router } from '@reach/router';
 

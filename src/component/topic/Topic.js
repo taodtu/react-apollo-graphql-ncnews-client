@@ -1,5 +1,5 @@
 import React from 'react';
-import { GET_TOPICS } from '../constant/Query'
+import { GET_TOPICS } from '../../constant/Query'
 import { Query } from 'react-apollo';
 import TopicItem from './TopicItem';
 import Style from './Topic.module.css'

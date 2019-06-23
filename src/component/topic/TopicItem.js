@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Style from './TopicItem.module.css';
 import { Query } from 'react-apollo';
-import { GET_ARTICLES_TOPIC } from '../constant/Query'
-import ArticleItem from './ArticleItem';
+import { GET_ARTICLES_TOPIC } from '../../constant/Query'
+import ArticleItem from '../article/ArticleItem';
 
 class TopicItem extends Component {
   state = {

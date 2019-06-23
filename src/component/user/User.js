@@ -1,5 +1,5 @@
 import React from 'react';
-import { GET_USERS } from '../constant/Query'
+import { GET_USERS } from '../../constant/Query'
 import { Query } from 'react-apollo';
 import UserItem from './UserItem';
 

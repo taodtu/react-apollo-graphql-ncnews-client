@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Style from './TopicItem.module.css';
+import Style from '../topic/TopicItem.module.css';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import ArticleItem from './ArticleItem';
+import ArticleItem from '../article/ArticleItem';
 
 const GET_ARTICLES_USER = gql`
 query($username: String!)
