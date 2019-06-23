@@ -38,7 +38,7 @@ class UserItem extends Component {
                 </div>}
                 <div className={Style.button} >
                   <div className={Style.buttonitem}>
-                    <Button variant="outlined" size="small" color="primary"
+                    <Button variant="outlined" size="medium" color="primary"
                       onClick={() =>
                         fetchMore({
                           variables: {
@@ -51,7 +51,19 @@ class UserItem extends Component {
                         })}
                     > More </Button>
                   </div>
-                  <Button variant="outlined" size="small" color="primary"> Show all </Button>
+                  <Button variant="outlined" size="medium" color="primary"
+                    onClick={() =>
+                      fetchMore({
+                        variables: {
+                          offset: articlesByAuthor.length,
+                          limit: null
+                        },
+                        updateQuery: (prev, { fetchMoreResult }) => {
+                          if (!fetchMoreResult) return prev;
+                          return { ...prev, articlesByAuthor: [...prev.articlesByAuthor, ...fetchMoreResult.articlesByAuthor] }
+                        }
+                      })}
+                  > Show all </Button>
                 </div>
 
               </div>
