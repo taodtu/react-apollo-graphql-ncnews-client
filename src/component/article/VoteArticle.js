@@ -4,7 +4,7 @@ import { GET_ARTICLE } from '../../constant/Query';
 import { Button } from '@material-ui/core';
 import React from 'react';
 
-const VoteArticle = ({ id }) => {
+const VoteArticle = ({ id, votes }) => {
   return (
     <Mutation mutation={VOTE_ARTICLE}
       update={(cache, { data: { updateArticle } }) => {
@@ -16,12 +16,22 @@ const VoteArticle = ({ id }) => {
           data: { getArticle: { ...getArticle, votes } }
         })
       }}
+      variables={{ id, votes: 1 }}
+      optimisticResponse={{
+        __typename: "Mutation",
+        updateArticle: {
+          __typename: "Article",
+          article_id: id,
+          id,
+          votes: votes + 1
+        }
+      }}
     >
       {(updateArticle, { data, loading, error }) => {
         if (loading) return "Loading...";
         if (error) return `Error! ${error.message}`;
         return <Button variant="outlined" size="small" color="primary"
-          onClick={() => updateArticle({ variables: { id, votes: 1 } })}> + vote! </Button>
+          onClick={updateArticle}> + vote! </Button>
       }}
     </Mutation>
 
