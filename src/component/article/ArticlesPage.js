@@ -8,7 +8,7 @@ import { Button } from '@material-ui/core';
 const ArticlesPage = () => {
  return (
   <Query query={GET_ARTICLES}
-   variables={{ cursor: "2018-05-27T03:32:28.514Z", limit: 3 }}
+   variables={{ cursor: "2018-05-31T15:59:13.341Z", limit: 10 }}
    notifyOnNetworkStatusChange={true}
   >
    {({ error, loading, data, fetchMore }) => {
@@ -29,15 +29,21 @@ const ArticlesPage = () => {
        </div>
        <div className={Style.buttonitem}>
         <Button variant="outlined" size="medium" color="primary"
-
+         onClick={() =>
+          fetchMore({
+           variables: {
+            limit: null
+           },
+           updateQuery: (prev, { fetchMoreResult }) => {
+            if (!fetchMoreResult) return prev;
+            console.log(fetchMoreResult)
+            return fetchMoreResult;
+           }
+          })}
         > Show all </Button></div>
-       <Button variant="outlined" size="medium" color="secondary"
-
-       > Close all </Button>
       </div>
       <hr />
      </div>
-
     );
    }}
   </Query>
