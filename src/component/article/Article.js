@@ -14,18 +14,17 @@ const Article = ({
  return (
   <div className={Style.article} >
    <div className={Style.left}>
-    <p>Slug: {topic}</p>
-    <p>Author: {author}</p>
-    <p>Date: {created_at}</p>
-    <p>Comments: {comment_count}</p>
+    <span className={Style.tag}>Slug: {topic}</span>
+    <span className={Style.tag}>Author: {author}</span>
+    <span className={Style.tag}>Date: {created_at}</span>
+    <span className={Style.tag}>Comments: {comment_count}</span>
    </div>
    <div className={Style.mid}>
     <p><strong>Title: {title}</strong></p>
     <p>Text: {body}</p>
    </div>
    <div className={Style.right}>
-    <p>Votes:</p>
-    <p>{votes}</p>
+    <p className={Style.p}>Votes: {votes}</p>
     <VoteArticle id={article_id} votes={votes} />
    </div>
   </div>

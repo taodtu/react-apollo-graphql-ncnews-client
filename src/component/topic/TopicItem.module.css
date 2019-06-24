@@ -19,7 +19,7 @@
   background-color: rgb(238, 191, 153); 
 }
 .articles{
-  margin: .1em 2em 0.6em;
+  margin: .1em .2em 0.6em;
   text-align: left;
   text-decoration: none;
   color: rgb(47, 2, 90)
@@ -31,5 +31,5 @@
   margin: 1em 0em;
 }
 .buttonitem{
-  margin-right: 3em;
+  margin-right: 2em;
 }

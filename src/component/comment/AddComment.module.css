@@ -7,23 +7,22 @@
 }
 .form{
  display: flex;
- flex-flow: wrap row;
+ flex-flow: wrap column;
  align-items: center; 
  margin-bottom: 0.9em;
 }
 
 .username{
- flex:1;
+ 
  text-align: left;
- margin-left: 1em;
 }
 .comment{
- flex:4;
+ 
  text-align: justify;
  line-height: 1.5em;
  margin-left: 0.5em;
 }
 .submit{
- flex:0.8;
- margin-left: auto;
+ 
+ margin: 1em 0.5em 0em;
 }

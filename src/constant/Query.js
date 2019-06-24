@@ -38,8 +38,8 @@ query($username: String! $offset:Int $limit:Int)
 }}`;
 
 export const GET_ARTICLES = gql`
-query{
-  articles(cursor: "2018-05-27T03:32:28.514Z"){
+query ($cursor:String $limit:Int ) {
+  articles(cursor:$cursor limit:$limit){
     pageInfo{
       hasNextPage
       endCursor

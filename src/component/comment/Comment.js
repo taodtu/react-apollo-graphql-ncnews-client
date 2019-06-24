@@ -12,16 +12,17 @@ const Comment = ({ comment_id,
   return (
     <div className={Style.article} >
       <div className={Style.left}>
-        <p>Comment_id: {comment_id}</p>
-        <p>Author: {author}</p>
-        <p>Date: {created_at}</p>
+        <span className={Style.tag}>Comment_id: {comment_id}</span>
+        <span className={Style.tag}>Author: {author}</span>
+        <span className={Style.tag}>Date: {created_at}</span>
       </div>
       <div className={Style.mid}>
         <p>Comment: {body}</p>
       </div>
       <div className={Style.right}>
         <p>Votes: {votes}</p>
-        <VoteComment article_id={article_id} comment_id={comment_id} />
+        <div className={Style.button}>
+          <VoteComment article_id={article_id} comment_id={comment_id} /></div>
         <div className={Style.button}>
           <DeleteComment article_id={article_id} comment_id={comment_id} />
         </div>
