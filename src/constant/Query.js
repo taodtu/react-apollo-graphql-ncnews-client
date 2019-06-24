@@ -37,6 +37,24 @@ query($username: String! $offset:Int $limit:Int)
     comment_count,
 }}`;
 
+export const GET_ARTICLES = gql`
+query{
+  articles(cursor: "2018-05-27T03:32:28.514Z"){
+    pageInfo{
+      hasNextPage
+      endCursor
+    }
+    edges{
+      article_id
+    title,
+    votes,
+    created_at,
+    comment_count,
+    }
+
+  }
+}
+`
 export const GET_ARTICLE = gql`
 query($id: ID!)
   {getArticle(article_id:$id ) {
