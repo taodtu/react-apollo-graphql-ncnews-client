@@ -1,12 +1,12 @@
 ## Features
 
-All the data manipulations on array and object are ensured not mutating the original data by using destructuring and spread operator.
+All the data manipulations on array and object are ensured **not mutating** the original data by using destructuring and spread operator.
 
-`Offset-based pagination` is implemented on topics and users page, while `cursor-based pagination` is applied on articles page.
+**`Offset-based pagination`** is implemented on topics and users page, while **`cursor-based pagination`** is applied on articles page.
 
-All graphQL mutations are achieved using `Apollo Cache`, rather than refetching from the server after mutation.
+All graphQL mutations are achieved using **`Apollo Cache`**, rather than refetching from the server after mutation.
 
-`Optimistic response` is implemented on article vote button.
+**`Optimistic response`** is implemented on article vote button.
 
 ## Available Scripts
 
