@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './component/032-fake news.svg';
 import Topic from './component/topic/Topic';
 import User from './component/user/User';
 import ArticlePage from './component/article/ArticlePage';
@@ -11,7 +12,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Nc-news</h1>
+        <header>
+          <img src={logo} alt="" />
+          <h1>Nc-news</h1>
+        </header>
         <Link className="title-link" to="/" >Home</Link>
         <Link className="title-link" to="/topics" >Topics</Link>
         <Link className="title-link" to="/users" >Users</Link>
