@@ -58,7 +58,6 @@ const ArticlesPage = () => {
           })}
         > Show all </Button>}</div>
       </div>
-      <hr />
      </div>
     );
    }}
