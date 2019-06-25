@@ -25,7 +25,8 @@ const Article = ({
    </div>
    <div className={Style.right}>
     <p className={Style.p}>Votes: {votes}</p>
-    <VoteArticle id={article_id} votes={votes} />
+    <div className={Style.button}><VoteArticle id={article_id} votes={votes} change={1} /></div>
+    <div className={Style.button}><VoteArticle id={article_id} votes={votes} change={-1} /></div>
    </div>
   </div>
  );
