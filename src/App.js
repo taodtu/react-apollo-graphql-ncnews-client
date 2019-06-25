@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <img src={logo} alt="" />
+          <img src={logo} alt="" id="logo" />
           <h1>Nc-news</h1>
         </header>
         <Link className="title-link" to="/" >Home</Link>
