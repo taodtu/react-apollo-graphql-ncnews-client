@@ -4,7 +4,7 @@ import { GET_ARTICLE } from '../../constant/Query';
 import { Mutation } from 'react-apollo';
 import { Button } from '@material-ui/core';
 
-const VoteComment = ({ article_id, comment_id }) => {
+const VoteComment = ({ article_id, comment_id, label }) => {
   return (
     <Mutation mutation={VOTE_COMMENT}
       update={(cache, { data: { updateComment } }) => {
@@ -22,8 +22,10 @@ const VoteComment = ({ article_id, comment_id }) => {
     >{(updateComment, { data, loading, error }) => {
       if (loading) return "Loading...";
       if (error) return `Error! ${error.message}`;
-      return <Button variant="outlined" size="small" color="primary"
+      if (label === 'up') return <Button variant="outlined" size="small" color="primary"
         onClick={() => updateComment({ variables: { id: comment_id, newVote: 1 } })}>  + vote! </Button>
+      if (label === 'down') return <Button variant="outlined" size="small" color="secondary"
+        onClick={() => updateComment({ variables: { id: comment_id, newVote: -1 } })}>  - vote! </Button>
     }}
     </Mutation>
   );

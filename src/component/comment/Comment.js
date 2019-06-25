@@ -22,7 +22,9 @@ const Comment = ({ comment_id,
       <div className={Style.right}>
         <p>Votes: {votes}</p>
         <div className={Style.button}>
-          <VoteComment article_id={article_id} comment_id={comment_id} /></div>
+          <VoteComment article_id={article_id} comment_id={comment_id} label={"up"} /></div>
+        <div className={Style.button}>
+          <VoteComment article_id={article_id} comment_id={comment_id} label={"down"} /></div>
         <div className={Style.button}>
           <DeleteComment article_id={article_id} comment_id={comment_id} />
         </div>
