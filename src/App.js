@@ -5,6 +5,7 @@ import User from './component/user/User';
 import ArticlePage from './component/article/ArticlePage';
 import ArticlesPage from './component/article/ArticlesPage';
 import { Link, Router } from '@reach/router';
+import Footer from './component/Footer'
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
             <ArticlePage path="/articles/:id" />
           </Router>
         </div>
+        <Footer />
       </div>
     )
   };
