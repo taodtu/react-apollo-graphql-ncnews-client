@@ -1,22 +1,22 @@
 # A React + Apollo + GraphQL Northcoders-News Client
 
-This App is hosted on [here](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [here](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [Github](https://github.com/taodtu/nc-news-react-graphql-client)
+This App is hosted on [Netlify](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [Heroku](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [Github](https://github.com/taodtu/nc-news-react-graphql-client)
 
 Northcoders News is a social news aggregation, web content rating, and discussion website. Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
 ## Features
 
-All the data manipulations on array and object are ensured **`not mutating`** the original data by using destructuring and spread operator.
+- All the data manipulations on array and object are ensured **`not mutating`** the original data by using destructuring and spread operator.
 
-Embrace **`declarative data fetching`** using Apollo built-in Query/Mutation component with **`Render Props Pattern`**.
+- Embrace **`declarative data fetching`** using Apollo built-in Query/Mutation component with **`Render Props Pattern`**.
 
-**`Offset-based pagination`** is implemented on topics and users page, while **`cursor-based pagination`** is applied on articles page.
+- **`Offset-based pagination`** is implemented on topics and users page, while **`cursor-based pagination`** is applied on articles page.
 
-All graphQL mutations are achieved using **`Apollo Cache`**, rather than refetching from the server after mutation.
+- All graphQL mutations are achieved using **`Apollo Cache`**, rather than refetching from the server after mutation.
 
-**`Optimistic response`** is implemented on article vote button.
+- **`Optimistic response`** is implemented on article vote button.
 
-**`Prefetching data`** is applied on Topic/User list item. So the articles data is fetched and stored in cache when mouse is hovering on it, and show immediately when user click on it. This feature is not working on Mobile device while no onMouseOver is enabled.
+- **`Prefetching data`** is applied on Topic/User list item. So the articles data is fetched and stored in cache when mouse is hovering on it, and show immediately when user click on it. This feature is not working on Mobile device while no onMouseOver is enabled.
 
 - Responsive.
 
