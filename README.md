@@ -10,6 +10,8 @@ All graphQL mutations are achieved using **`Apollo Cache`**, rather than refetch
 
 **`Optimistic response`** is implemented on article vote button.
 
+**`Prefetching data`** is applied on Topic/User list item. So the articles data is fetched and stored in cache when mouse is hovering on it, and show immediately when user click on it. This feature is not working on Mobile device while no onMouseOver is enabled.
+
 ## Available Scripts
 
 In the project directory, you can run:
