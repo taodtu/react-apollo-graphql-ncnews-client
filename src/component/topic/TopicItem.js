@@ -42,7 +42,7 @@ class TopicItem extends Component {
             const { articlesByTopic } = data;
             return (
               <div>
-                <h4>Articles belong to {slug}, click article_id to see more details</h4>
+                <h4>Articles belong to {slug}, click title to see more details</h4>
                 {articlesByTopic && <div className={Style.articles} >
                   {articlesByTopic.map(article => <ArticleItem article={article} key={article.article_id} />)}
                 </div>}

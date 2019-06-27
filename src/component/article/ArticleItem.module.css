@@ -2,7 +2,7 @@
  display: flex;
  flex-flow: wrap column;
  align-items: center; 
- border: 1.5px solid rgb(1, 1, 37);
+ border: 1.5px solid rgb(7, 85, 26);
  border-radius: 1em;
  margin-bottom: 0.5em;
 }
@@ -35,6 +35,7 @@
 }
 .tag{
  margin: 0.5em 0.4em 0.8em;
+ text-align: center;
 }
 .p{
  margin-right: 1em;
