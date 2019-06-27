@@ -5,6 +5,7 @@ import Topic from './component/topic/Topic';
 import User from './component/user/User';
 import ArticlePage from './component/article/ArticlePage';
 import ArticlesPage from './component/article/ArticlesPage';
+import Home from './Home';
 import { Link, Router } from '@reach/router';
 import Footer from './component/Footer'
 
@@ -22,6 +23,7 @@ class App extends Component {
         <Link className="title-link" to="/articles" >Articles</Link>
         <div>
           <Router>
+            <Home path="/" />
             <Topic path="/topics" />
             <User path="/users" />
             <ArticlesPage path="/articles" />
