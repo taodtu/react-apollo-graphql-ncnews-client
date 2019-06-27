@@ -20,7 +20,15 @@ class TopicItem extends Component {
     const { clicked } = this.state;
     return (
       <div>
-        <div className={Style.topic} onClick={() => this.handleClick(clicked)}>
+        <div className={Style.topic}
+          onClick={() => this.handleClick(clicked)}
+          onMouseOver={() =>
+            this.props.client.query({
+              query: GET_ARTICLES_TOPIC,
+              variables: { slug, offset: 0, limit: 3 }
+            })
+          }
+        >
           <strong className={Style.item} style={{ "textAlign": "center", "marginTop": "0.8em" }}>Slug:  {slug} </strong>
           <p className={Style.item}>Description:  {topic.description} </p>
           <p className={Style.item} >Article_count: {topic.article_count} Comment_count: {topic.comment_count}</p>

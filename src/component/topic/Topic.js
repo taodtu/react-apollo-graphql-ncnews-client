@@ -6,7 +6,7 @@ import Style from './Topic.module.css'
 
 const Topic = () => {
   return (<Query query={GET_TOPICS} >
-    {({ loading, error, data }) => {
+    {({ loading, error, data, client }) => {
       if (loading) return "Loading...";
       if (error) return `Error! ${error.message}`;
       const { topics } = data;
@@ -14,7 +14,7 @@ const Topic = () => {
         <div>
           <h3>Topics, click to see articles on each slug </h3>
           <div className={Style.topic} >
-            {topics && topics.map(topic => <TopicItem topic={topic} key={topic.slug} />)}
+            {topics && topics.map(topic => <TopicItem topic={topic} key={topic.slug} client={client} />)}
           </div>
         </div>
       );

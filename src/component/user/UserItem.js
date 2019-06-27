@@ -20,7 +20,15 @@ class UserItem extends Component {
     const { clicked } = this.state;
     return (
       <div>
-        <div className={Style.topic} onClick={() => this.handleClick(clicked)}>
+        <div className={Style.topic}
+          onClick={() => this.handleClick(clicked)}
+          onMouseOver={() =>
+            this.props.client.query({
+              query: GET_ARTICLES_USER,
+              variables: { username, offset: 0, limit: 3 }
+            })
+          }
+        >
           <strong className={Style.item} style={{ "textAlign": "center", "marginTop": "0.8em" }}>Username: {username} </strong>
           <p className={Style.item}>name:  {user.name} </p>
           <p className={Style.item} >Article_count: {user.article_count} Comment_count: {user.comment_count}</p>

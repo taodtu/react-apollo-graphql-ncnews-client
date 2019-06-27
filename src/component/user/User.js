@@ -5,7 +5,7 @@ import UserItem from './UserItem';
 
 const User = () => {
   return (<Query query={GET_USERS} >
-    {({ loading, error, data }) => {
+    {({ loading, error, data, client }) => {
       if (loading) return "Loading...";
       if (error) return `Error! ${error.message}`;
       const { users } = data;
@@ -13,7 +13,7 @@ const User = () => {
         <div>
           <h3>Users, click to see articles on each user </h3>
           <div className="user" >
-            {users.map(user => <UserItem user={user} key={user.username} />)}
+            {users.map(user => <UserItem user={user} key={user.username} client={client} />)}
           </div>
         </div>
       );
