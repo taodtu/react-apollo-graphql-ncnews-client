@@ -2,11 +2,17 @@ import React from 'react';
 import { GET_USERS } from '../../constant/Query'
 import { Query } from 'react-apollo';
 import UserItem from './UserItem';
+import Loader from 'react-loader-spinner';
 
 const User = () => {
   return (<Query query={GET_USERS} >
     {({ loading, error, data, client }) => {
-      if (loading) return "Loading...";
+      if (loading) return <Loader
+        type="Puff"
+        color="#00BFFF"
+        height="100"
+        width="100"
+      />;
       if (error) return `Error! ${error.message}`;
       const { users } = data;
       return (

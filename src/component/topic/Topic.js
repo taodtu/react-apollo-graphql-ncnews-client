@@ -2,12 +2,18 @@ import React from 'react';
 import { GET_TOPICS } from '../../constant/Query'
 import { Query } from 'react-apollo';
 import TopicItem from './TopicItem';
-import Style from './Topic.module.css'
+import Style from './Topic.module.css';
+import Loader from 'react-loader-spinner';
 
 const Topic = () => {
   return (<Query query={GET_TOPICS} >
     {({ loading, error, data, client }) => {
-      if (loading) return "Loading...";
+      if (loading) return <Loader
+        type="Puff"
+        color="#00BFFF"
+        height="100"
+        width="100"
+      />;
       if (error) return `Error! ${error.message}`;
       const { topics } = data;
       return (

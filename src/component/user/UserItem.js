@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import { GET_ARTICLES_USER } from '../../constant/Query'
 import ArticleItem from '../article/ArticleItem';
 import { Button } from '@material-ui/core';
+import Loader from 'react-loader-spinner';
 
 class UserItem extends Component {
   state = {
@@ -38,12 +39,17 @@ class UserItem extends Component {
           notifyOnNetworkStatusChange={true}
         >
           {({ error, loading, data, fetchMore }) => {
-            if (loading) return "Loading...";
+            if (loading) return <Loader
+              type="Puff"
+              color="#00BFFF"
+              height="100"
+              width="100"
+            />;
             if (error) return `Error! ${error.message}`;
             const { articlesByAuthor } = data;
             return (
               <div>
-                <h4>Articles belong to {username}, click article_id to see more details</h4>
+                <h4>Articles belong to {username}, click title to see more details</h4>
                 {articlesByAuthor && <div className={Style.articles} >
                   {articlesByAuthor.map(article => <ArticleItem article={article} key={article.article_id} />)}
                 </div>}

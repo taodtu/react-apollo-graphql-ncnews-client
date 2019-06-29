@@ -2,6 +2,8 @@
 
 This App is hosted on [Netlify](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [Heroku](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [Github](https://github.com/taodtu/nc-news-react-graphql-client)
 
+I have made a similar app with REST structure: the App web is hosted on [Netlify](https://tao-nc-news-rest-client.netlify.com/). The server app is hosted on [Heroku](https://nc-news-rest-api.herokuapp.com/) and the source code can be found on [Github](https://github.com/taodtu/nc-news)
+
 Northcoders News is a social news aggregation, web content rating, and discussion website. Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
 ## Features
@@ -20,6 +22,8 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 
 - Responsive.
 
+- Add loading spinner with [react-loader-spinner v2.30](https://www.npmjs.com/package/react-loader-spinner)
+
 - Styling with [@material/ui v4.1.3](https://material-ui.com/).
 
 - Routing with [@reach/router v1.1.0](https://reach.tech/router).
@@ -31,5 +35,12 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 -   "apollo-link-http": "^1.5.15",
 -   "graphql": "^14.3.1",
 -   "graphql-tag": "^2.10.1",
+
+## Installation
+- git clone https://github.com/taodtu/react-apollo-graphql-ncnews-client.git
+- cd react-apollo-graphql-ncnews-client
+- npm install
+- npm start
+- visit http://localhost:3000
 
 
