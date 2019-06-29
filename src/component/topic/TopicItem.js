@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import Loader from 'react-loader-spinner';
 
 const TopicItem = ({ topic, client }) => {
-  const [clicked, setClick] = useState(false)
+  const [clicked, setClick] = useState(false);
   const handleClick = (clicked) => {
     setClick(!clicked)
   }
