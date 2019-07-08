@@ -1,8 +1,8 @@
 # A React + Apollo + GraphQL Northcoders-News Client
 
-This App is hosted on [Netlify](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [Heroku](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [Github](https://github.com/taodtu/nc-news-react-graphql-client)
+This App is hosted on [https://tao-apollo-graphql-nc-news-client.netlify.com/](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [https://nc-news-graphql-server.herokuapp.com/](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [https://github.com/taodtu/NC-News-GraphQL-Server](https://github.com/taodtu/NC-News-GraphQL-Server)
 
-I have made a similar app with REST structure: the App web is hosted on [Netlify](https://tao-nc-news-rest-client.netlify.com/) and source code is [here](https://github.com/taodtu/nc-news-rest-client). The server app is hosted on [Heroku](https://nc-news-rest-api.herokuapp.com/) and the source code can be found on [Github](https://github.com/taodtu/nc-news)
+I have made a similar app with REST structure: the App web is hosted on [https://tao-nc-news-rest-client.netlify.com/](https://tao-nc-news-rest-client.netlify.com/) and source code is [https://github.com/taodtu/nc-news-rest-client](https://github.com/taodtu/nc-news-rest-client). The server app is hosted on [https://nc-news-rest-api.herokuapp.com/](https://nc-news-rest-api.herokuapp.com/) and the source code can be found on [https://github.com/taodtu/nc-news](https://github.com/taodtu/nc-news)
 
 Northcoders News is a social news aggregation, web content rating, and discussion website. Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
@@ -30,19 +30,18 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 
 - Routing with [@reach/router v1.1.0](https://reach.tech/router).
 
--   "apollo-cache-inmemory": "^1.6.2",
--   "apollo-client": "^2.6.2",
--   "apollo-link": "^1.2.12",
--   "apollo-link-error": "^1.1.11",
--   "apollo-link-http": "^1.5.15",
--   "graphql": "^14.3.1",
--   "graphql-tag": "^2.10.1",
+- "apollo-cache-inmemory": "^1.6.2",
+- "apollo-client": "^2.6.2",
+- "apollo-link": "^1.2.12",
+- "apollo-link-error": "^1.1.11",
+- "apollo-link-http": "^1.5.15",
+- "graphql": "^14.3.1",
+- "graphql-tag": "^2.10.1",
 
 ## Installation
+
 - git clone https://github.com/taodtu/react-apollo-graphql-ncnews-client.git
 - cd react-apollo-graphql-ncnews-client
 - npm install
 - npm start
 - visit http://localhost:3000
-
-
