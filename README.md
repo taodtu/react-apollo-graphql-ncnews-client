@@ -1,8 +1,10 @@
 # A React + Apollo + GraphQL Northcoders-News Client
 
-This App is hosted on [https://tao-apollo-graphql-nc-news-client.netlify.com/](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [https://nc-news-graphql-server.herokuapp.com/](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [https://github.com/taodtu/NC-News-GraphQL-Server](https://github.com/taodtu/NC-News-GraphQL-Server)
+This App is hosted on [click here](https://tao-apollo-graphql-nc-news-client.netlify.com/).The server app is hosted on [click here](https://nc-news-graphql-server.herokuapp.com/) and the source code can be found on [click here](https://github.com/taodtu/NC-News-GraphQL-Server)
 
-I have made a similar app with REST structure: the App web is hosted on [https://tao-nc-news-rest-client.netlify.com/](https://tao-nc-news-rest-client.netlify.com/) and source code is [https://github.com/taodtu/nc-news-rest-client](https://github.com/taodtu/nc-news-rest-client). The server app is hosted on [https://nc-news-rest-api.herokuapp.com/](https://nc-news-rest-api.herokuapp.com/) and the source code can be found on [https://github.com/taodtu/nc-news](https://github.com/taodtu/nc-news)
+I have made a similar app with REST structure: the App web is hosted on [click here](https://tao-nc-news-rest-client.netlify.com/) and source code is [click here](https://github.com/taodtu/nc-news-rest-client). The server app is hosted on [click here](https://nc-news-rest-api.herokuapp.com/) and the source code can be found on [click here](https://github.com/taodtu/nc-news)
+
+If you want to know more about me, here is my [portforlio web](https://tao-profile.netlify.com/).
 
 Northcoders News is a social news aggregation, web content rating, and discussion website. Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
